@@ -2,7 +2,6 @@ import re
 from Absolute_Loader import helper_function as hf
 
 
-
 # get The Absolute loader
 def get_absolute_loader(df):
     # open sic input file
@@ -12,10 +11,11 @@ def get_absolute_loader(df):
     header_string = f.readline()
     starting_address = hf.hex_to_string(header_string[7:13])
     program_length = hf.hex_to_string(header_string[14:])
-    
+
     # calculate addresses of memory
     addresses = []
-    df = hf.getMemoryGraph(starting_address, program_length, addresses, df)
+    size = hf.address_in_decimal(program_length) + hf.address_in_decimal(starting_address)
+    df = hf.getMemoryGraph(starting_address, size, addresses, df)
 
     # insert into cells
     for line in f.readlines():
@@ -36,10 +36,8 @@ def get_absolute_loader(df):
                     # if we exceed the size of tuples(records) break
                     else:
                         flag = True
-                        break;
+                        break
                 which_column = 1
                 if flag:
-                    break;
+                    break
     return df
-
-
