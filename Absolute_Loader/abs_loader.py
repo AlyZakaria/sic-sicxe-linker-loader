@@ -15,7 +15,8 @@ def get_absolute_loader(df):
     
     # calculate addresses of memory
     addresses = []
-    df = hf.getMemoryGraph(starting_address, program_length, addresses, df)
+    size = hf.address_in_decimal(program_length) + hf.address_in_decimal(starting_address)
+    df = hf.getMemoryGraph(starting_address, size, addresses, df)
 
     # insert into cells
     for line in f.readlines():
@@ -36,10 +37,10 @@ def get_absolute_loader(df):
                     # if we exceed the size of tuples(records) break
                     else:
                         flag = True
-                        break;
+                        break
                 which_column = 1
                 if flag:
-                    break;
+                    break
     return df
 
 
