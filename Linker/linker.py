@@ -1,11 +1,12 @@
 from Absolute_Loader import helper_function as hf
 import re
 
+starting_mem_address = ''
 
 # to get linker
 def get_linker(df):
     # get starting address from user
-
+    global starting_mem_address
     while True:
         starting_mem_address = input('Insert Starting of the program in 4 hexadecimal digits:\n')
         if len(starting_mem_address) != 4:
@@ -20,6 +21,7 @@ def get_linker(df):
     for line in f.readlines():
         if line[0] == 'H':
             program_length = hf.hex_to_string(line[14:])
+            starting_address = hf.hex_to_string(line[7:13])
             if len(list_starts) == 0:
                 starting_address = hex(
                     hf.address_in_decimal(starting_mem_address))[2:].upper()
@@ -30,7 +32,7 @@ def get_linker(df):
                 list_starts.append(starting_address)
             list_lengths.append(program_length)
     programs_map = dict(zip(list_starts, list_lengths))
-    print(programs_map)
+    # print(programs_map)
     # calculate addresses of memory
     addresses = []
     size = hf.address_in_decimal(list_starts[-1]) + hf.address_in_decimal(list_lengths[-1]) + 1
@@ -43,8 +45,7 @@ def get_linker(df):
     counter = 0
     for line in f.readlines():
         if line[0] == 'T':
-            record_start = hf.hex_to_string(
-                hex(hf.address_in_decimal(line[1:7]) + hf.address_in_decimal(list_starts[counter])))
+            record_start = hf.hex_to_string(hex(hf.address_in_decimal(line[1:7])+hf.address_in_decimal(list_starts[counter])))
             # slice record into tuples
             obj_codes = line[9:]
             tuples = re.findall('..', obj_codes)
@@ -65,5 +66,5 @@ def get_linker(df):
                 if flag:
                     break
         if line[0] == 'E':
-            counter += 1
-    print(df)
+            counter+=1
+    return df
