@@ -13,8 +13,7 @@ choose_program = input('This is a loader and linker program!\nPlease choose acco
 if choose_program.upper() == 'SIC':
     # Absolute loader
     df = abs_loader.get_absolute_loader(df)
-    # print(df)
-    pdg.show(df)
+    print(df)
 elif choose_program.upper() == 'SICXE':
     # Linker
     df = linker.get_linker(df)
@@ -26,9 +25,9 @@ elif choose_program.upper() == 'SICXE':
     dfString = df_Loader.to_string(header = True, index=False)
     f.write(dfString)
     f.close()
-
-
+    
     # Modified Memory
     df = modifiedMemory.modifyMemory(df, df_Loader)
-    # print(df)
-    pdg.show(df)
+
+
+    pdg.show(df)    
