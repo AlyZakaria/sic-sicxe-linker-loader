@@ -53,7 +53,9 @@ def insertToSymbolTable(list, df):
             handleDefRec(line[1:], address, df)
     return df
 
-def getLoadMap(df):
+def getLoadMap(df , starting_mem_address):
+    global startMem
+    startMem = starting_mem_address
     f = open('rsc\\sicxe.txt', 'r')
     list = []
     global modifiedRec

@@ -2,7 +2,6 @@ import re
 from Absolute_Loader import helper_function as hf
 
 
-
 # get The Absolute loader
 def get_absolute_loader(df):
     # open sic input file
@@ -12,7 +11,7 @@ def get_absolute_loader(df):
     header_string = f.readline()
     starting_address = hf.hex_to_string(header_string[7:13])
     program_length = hf.hex_to_string(header_string[14:])
-    
+
     # calculate addresses of memory
     addresses = []
     size = hf.address_in_decimal(program_length) + hf.address_in_decimal(starting_address)
@@ -42,5 +41,3 @@ def get_absolute_loader(df):
                 if flag:
                     break
     return df
-
-
