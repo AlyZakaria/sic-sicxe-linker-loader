@@ -1,10 +1,10 @@
 ControlSection SymbolName Address Length
-        PROGA                4000   0063
-                   LISTA     4040       
-                   ENDA      4054       
-        PROGB                4063   007F
-                   LISTB     40C3       
-                   ENDB      40D3       
-        PROGC                40E2   0051
-                   LISTC     4112       
-                   ENDC      4124       
+        PROGA                412A   0063
+                   LISTA     416A       
+                   ENDA      417E       
+        PROGB                418D   007F
+                   LISTB     41ED       
+                   ENDB      41FD       
+        PROGC                420C   0051
+                   LISTC     423C       
+                   ENDC      424E       

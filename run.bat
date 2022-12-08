@@ -1,3 +1,3 @@
 pip install pandas
 pip install pandasgui
-python main.py
+python main.py 

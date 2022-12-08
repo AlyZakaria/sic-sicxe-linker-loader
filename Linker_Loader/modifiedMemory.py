@@ -6,10 +6,10 @@ import re
 
 
 
-def getrow(orgAddress):
-    startMem = linker.starting_mem_address
+def getrow(orgAddress, startMem):
     rowAdress = orgAddress[:3] + '0'
-    index = hf.get_row(rowAdress,startMem)
+    # print(rowAdress,startMem)
+    index = hf.get_row(rowAdress, startMem)
     return index
 
 def getObjectCode(strow, stcol, size, df):
@@ -36,9 +36,11 @@ def getObjectCode(strow, stcol, size, df):
 
 
 def getCell(stAddress, stRec, df):
-    orgAddress = hex(add(int(stAddress,16), int(str(stRec),16)))[2:].upper()
+    orgAddress = hex(add(int(stAddress,16), int(str(stRec),16)))[2:].upper().zfill(4)
     # get row & col
-    row = getrow(orgAddress)
+    # print(orgAddress)
+    row = getrow(orgAddress, df.iloc[0,0])
+    # print(orgAddress)
     col = df.columns.get_loc(orgAddress[3])
     return[row , col]
 
@@ -72,11 +74,12 @@ def modify(map, df):
 
 def modifyMemory(df, df_Loader):
     obj_map = {}
-    startAddress = df.iloc[0,0]
+    startAddress = linker.starting_mem_address
     map = loadMap.symbolMap(df_Loader)
     flag = False
     f = open('rsc\\sicxe.txt', 'r')
     # print(loadMap.modifiedRec)
+    # print(startAddress)
     secHead = False
     for i in f.readlines():
 
@@ -90,10 +93,12 @@ def modifyMemory(df, df_Loader):
                 flag = True
             # to get the cell 
             [row , col] = getCell(startAddress, startRec, df)
+            # print(row,col)
             #get target object code
             objCode = getObjectCode(row, col, flag, df)
             key = hex(add(int(startRec,16) , int(startAddress,16)))[2:] 
             # modified ObjectCode
+            # print(startRec, SymbolName)
             if sign == '+':
                 # print(objCode)
                 if key in obj_map.keys():
@@ -121,6 +126,7 @@ def modifyMemory(df, df_Loader):
                         newObjCode = hex(int(objCode, 16) - int(map[SymbolName],16)  & (2**24-1))[2:].zfill(6)
                         newObjCode = newObjCode[-6:]
                         obj_map[key] = newObjCode
+            # print(obj_map)
             flag = False
             secHead = True
     # modify our memory

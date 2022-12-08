@@ -13,11 +13,12 @@ choose_program = input('This is a loader and linker program!\nPlease choose acco
 if choose_program.upper() == 'SIC':
     # Absolute loader
     df = abs_loader.get_absolute_loader(df)
-    print(df)
+
 elif choose_program.upper() == 'SICXE':
     # Linker
     df = linker.get_linker(df)
     # External SymbolTable
+    print(df)
     headers = ['ControlSection' , 'SymbolName' , 'Address' , 'Length']
     df_Loader = pd.DataFrame(columns = headers)
     df_Loader = loadMap.getLoadMap(df_Loader, linker.starting_mem_address)
@@ -30,4 +31,10 @@ elif choose_program.upper() == 'SICXE':
     df = modifiedMemory.modifyMemory(df, df_Loader)
 
 
-    pdg.show(df)    
+# html = df.to_html(classes = 'table design')
+# # write html to file
+# text_file = open("gui_loader_linker\\index.html", "a+")
+# text_file.write(html)
+# text_file.close()
+
+pdg.show(df)    

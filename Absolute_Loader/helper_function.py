@@ -31,8 +31,8 @@ def get_cell(start_record, start_program, column_name, df):
 
 # do memoryGraph
 def getMemoryGraph(starting_address, program_length, addresses, df):
-    if starting_address[3] != '0':
-        starting_address = starting_address[:3] + '0'
+    # if starting_address[3] != '0':
+    starting_address = (starting_address[:3] + '0').zfill(4)
     # size = address_in_decimal(program_length) + address_in_decimal(starting_address)
     for i in range(address_in_decimal(starting_address), program_length, 16):
         addresses.append(hex(i)[2:].zfill(4).upper())

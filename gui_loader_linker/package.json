@@ -1,0 +1,17 @@
+{
+  "name": "loader_linker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "require": "^0.4.4"
+  }
+}

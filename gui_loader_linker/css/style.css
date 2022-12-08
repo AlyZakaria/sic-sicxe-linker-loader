@@ -21,7 +21,7 @@ body {
     background-color: rgb(28, 28, 30);
 }
 
-.mybtn {
+#mybtn {
     background: rgb(255, 69, 58);
     border-radius: 999px;
     box-sizing: border-box;
@@ -64,4 +64,27 @@ body {
 .container .third {
     padding: 10px;
     text-align: center;
+}
+
+.table{
+    display: table;
+    width: 700px;
+    margin-top: 50px;
+    color: white;
+    border-collapse: separate;
+    border-spacing: 2px;
+    /* border-bottom: 3px solid rgb(6, 206, 6); */
+}
+.design{
+    margin: auto auto;
+}
+.table > thead > td {
+    background-color: rgb(55, 41, 19);
+    color: white;
+    
+}
+td{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 3px solid rgb(6, 206, 6);
 }
