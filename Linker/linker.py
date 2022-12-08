@@ -20,7 +20,6 @@ def get_linker(df):
     for line in f.readlines():
         if line[0] == 'H':
             program_length = hf.hex_to_string(line[14:])
-            starting_address = hf.hex_to_string(line[7:13])
             if len(list_starts) == 0:
                 starting_address = hex(
                     hf.address_in_decimal(starting_mem_address))[2:].upper()
@@ -44,7 +43,8 @@ def get_linker(df):
     counter = 0
     for line in f.readlines():
         if line[0] == 'T':
-            record_start = hf.hex_to_string(hex(hf.address_in_decimal(line[1:7])+hf.address_in_decimal(list_starts[counter])))
+            record_start = hf.hex_to_string(
+                hex(hf.address_in_decimal(line[1:7]) + hf.address_in_decimal(list_starts[counter])))
             # slice record into tuples
             obj_codes = line[9:]
             tuples = re.findall('..', obj_codes)
@@ -65,5 +65,5 @@ def get_linker(df):
                 if flag:
                     break
         if line[0] == 'E':
-            counter+=1
+            counter += 1
     print(df)
