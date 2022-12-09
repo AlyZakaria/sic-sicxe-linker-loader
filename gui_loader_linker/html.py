@@ -1,4 +1,5 @@
 
+html_str = '''
 <html lang="en">
 
 <head>
@@ -36,9 +37,9 @@
             </div>
             <p id = "message"></p>
             <div class = "parent">
-       
+            {table}
             </div>
-          </div>
+            </div>
     </div>
 </body>
 <!-- JavaScript Bundle with Popper -->
@@ -46,3 +47,4 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript"src="main.js"></script>
 </html>
+'''

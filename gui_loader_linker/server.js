@@ -39,7 +39,7 @@ app.post('/inputs' , (req, res) => {
         if (err) {
             console.error(err);
             return;
-        }
+        }   
         // console.log('here2',req.body.type);
 
     });

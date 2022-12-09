@@ -37,5 +37,5 @@ def getMemoryGraph(starting_address, program_length, addresses, df):
     for i in range(address_in_decimal(starting_address), program_length, 16):
         addresses.append(hex(i)[2:].zfill(4).upper())
     df['Address'] = addresses
-    df = df.fillna('xx')
+    df = df.fillna('--')
     return df

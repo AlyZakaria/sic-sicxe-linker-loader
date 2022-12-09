@@ -20,6 +20,12 @@ body {
     font-weight: 700;
     background-color: rgb(28, 28, 30);
 }
+.buttons{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    margin: 50px;
+}
 
 #mybtn {
     background: rgb(255, 69, 58);
@@ -41,7 +47,26 @@ body {
     word-break: break-word;
     border: 0;
 }
-
+#removebtn{
+    background: rgb(255, 69, 58);
+    border-radius: 999px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 300px;
+    word-break: break-word;
+    border: 0;
+}
 .main_screen {
     display: flex;
     justify-content: center;
@@ -65,7 +90,7 @@ body {
     padding: 10px;
     text-align: center;
 }
-
+/* 
 .table{
     display: table;
     width: 700px;
@@ -73,9 +98,10 @@ body {
     color: white;
     border-collapse: separate;
     border-spacing: 2px;
-    /* border-bottom: 3px solid rgb(6, 206, 6); */
-}
-.design{
+    border-bottom: 3px solid rgb(6, 206, 6); 
+} 
+*/
+/* .design{
     margin: auto auto;
 }
 .table > thead > td {
@@ -87,4 +113,15 @@ td{
     text-align: center;
     padding: 10px;
     border-bottom: 3px solid rgb(6, 206, 6);
+} */
+th{
+    text-align: left;
 }
+
+#message{
+    color: red;
+    text-align: center;
+}
+/* .table{
+    color: white;
+} */
