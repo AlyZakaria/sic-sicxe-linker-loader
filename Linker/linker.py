@@ -4,15 +4,11 @@ import re
 starting_mem_address = ''
 
 # to get linker
-def get_linker(df):
+def get_linker(df , stAddress):
     # get starting address from user
     global starting_mem_address
-    while True:
-        starting_mem_address = input('Insert Starting of the program in 4 hexadecimal digits:\n')
-        if len(starting_mem_address) != 4:
-            print('!Invalid starting address length!')
-        else:
-            break
+    starting_mem_address = stAddress
+       
     # open sicxe program
     f = open('rsc\\sicxe.txt', 'r')
     # get all starting addresses and lengths of all programs

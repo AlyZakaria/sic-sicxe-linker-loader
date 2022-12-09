@@ -5,11 +5,11 @@ let button = document.getElementById('mybtn');
 button.onclick = async () => {
     
     // delete  dataframe if it exists
-    const table = document.getElementsByClassName("table");
-    // console.log(table)
-    if(table != null && table.length > 0) {
-        table.remove();
-    }
+    const parent = document.getElementsByClassName("parent");
+    const table = document.getElementsByClassName("design");
+    console.log(parent)
+    if(parent.childElementCount > 0)
+        parent.removeChild(table);
         
     // take the inputs
     let specify = document.getElementById("language");
@@ -18,16 +18,17 @@ button.onclick = async () => {
         // select file
     const selectedFile = document.getElementById('myfile').files[0]
     text = await selectedFile.text();
-    console.log(text)
+    const formData = new FormData();
+        // start address
+    const stAddr = document.getElementById('address');
 
+    formData.append('text' , text);
+    formData.append('type', progType);
+    formData.append('address' , stAddr.value? stAddr.value: '');
     await fetch('http://localhost:5000/inputs', {
-        method: 'POST',
-        body: JSON.stringify(text),
-        mode: 'cors', // no-cors, *cors, same-origin
-        }).then(
-            response => response.json()// if the response is a JSON object
-          ).catch((error) => {
-            console.log(error);
-        })  
-  
+        'method' : 'POST',
+        'body': formData
+    }).then(response => response.json())
+    .then(response => console.log(response))
+    
 } 
