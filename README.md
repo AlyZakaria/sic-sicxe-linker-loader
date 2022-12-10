@@ -17,7 +17,7 @@ It simulates an [SIC](no control sections only one HTE record) memory for HTE re
 at least 2 control sections HDRTME records)) memory for HDRTME record with external symbol table.
 
 ## Project Criteria
-![Input](https://github.com/AlyZakaria/sic-sicxe-linker-loader/tree/main/rsc/photos/Inputs.png)
+![Input](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/Inputs.png)
 - whenever you select an input file When selecting the program's type, be sure to specify whether it is a sic or sicxe programm.
 - You must enter a start address with four hexadecimal digits when putting a sicxe program.
 
@@ -27,9 +27,9 @@ at least 2 control sections HDRTME records)) memory for HDRTME record with exter
 
         pip install pandas
 3. open the run.bat file and then change and set your python path
-![runBat](https://github.com/AlyZakaria/sic-sicxe-linker-loader/tree/main/rsc/photos/runBat.png)
+![runBat](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/runBat.png)
 4. put the directory of the project in run.bat file 
-![batFile](https://github.com/AlyZakaria/sic-sicxe-linker-loader/tree/main/rsc/photos/path.png)
+![batFile](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/path.png)
 4. open the project and change the path to the gui_loader_linker.
 
 5. run this command to install the dependencies
