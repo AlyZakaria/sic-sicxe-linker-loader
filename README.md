@@ -26,9 +26,9 @@ at least 2 control sections HDRTME records)) memory for HDRTME record with exter
 2. Install pandas by running this command
 
         pip install pandas
-3. open the run.bat file and then change and set your python path
+3. open the run.bat file and then change and set your python path\
 ![runBat](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/runBat.png)
-4. put the directory of the project in run.bat file 
+4. put the directory of the project in run.bat file \
 ![batFile](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/path.png)
 4. open the project and change the path to the gui_loader_linker.
 
