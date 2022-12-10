@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require("body-parser")
 var fileupload = require("express-fileupload");
 const exec = require('child_process').exec;
-
+const {resolve} = require('path');
 
 const app = express();
 const fs = require('fs');
@@ -35,7 +35,8 @@ app.post('/inputs' , (req, res) => {
             // file written successfully
           });
     }
-    exec(`"E:/Code/python/sic-sicxe-linker-loader/run.bat" "${req.body.type}" "${req.body.address}"`, (err, stdout, stderr) => {
+    const absPath = resolve('../run.bat');
+    exec(`"${absPath}" "${req.body.type}" "${req.body.address}"`, (err, stdout, stderr) => {
         if (err) {
             console.error(err);
             return;
