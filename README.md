@@ -10,16 +10,20 @@ directive.\
 • These control sections may be loaded at different addresses in
 memory.
 
+* Here is the repository if you wish to get Sic/Modi-Sic Assembler => [Modi-SIC](https://github.com/chehab1/Modi-SIC)
 ********************************
 
 ## Project Idea
 It simulates an [SIC](no control sections only one HTE record) memory for HTE record, and a [SICXE](may have
 at least 2 control sections HDRTME records)) memory for HDRTME record with external symbol table.
 
+************************************************
 ## Project Criteria
 ![Input](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/Inputs.png)
 - whenever you select an input file When selecting the program's type, be sure to specify whether it is a sic or sicxe programm.
 - You must enter a start address with four hexadecimal digits when putting a sicxe program.
+
+********************************
 
 ## How to run the project?
 1. You need to install python.
@@ -30,12 +34,15 @@ at least 2 control sections HDRTME records)) memory for HDRTME record with exter
 ![runBat](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/runBat.png)
 4. put the directory of the project in run.bat file \
 ![batFile](https://github.com/AlyZakaria/sic-sicxe-linker-loader/blob/main/rsc/photos/path.png)
-4. open the project and change the path to the gui_loader_linker.
+5. open the project and run this command to change
+the path.
 
-5. run this command to install the dependencies
+        cd gui_loader_linker
+
+6. run this command to install the dependencies
 
         npm install
-6. start the server.
+7. start the server.
         
         npm start
 
